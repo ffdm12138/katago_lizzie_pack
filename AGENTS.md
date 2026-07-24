@@ -136,6 +136,14 @@ python scripts/pack_full.py
 KataGo 作为外部引擎被 Lizzie YZY 调用，本整合包不做源码级二次开发。
 不建议克隆 KataGo 源码自行编译，推荐使用官方预编译版。
 
+### 更新要点
+
+> **每次更新引擎后必须清理缓存**，否则旧缓存与新引擎不兼容会导致初始化卡死或报错。
+
+**清理缓存：** 删除 `KataGoData/` 目录（引擎会在下次启动时自动重建）。
+
+**首次启动较慢：** TensorRT 和 OpenCL 引擎首次加载模型时需要编译优化内核（TensorRT 可能需要 **5-15 分钟**）。之后会生成缓存，后续启动就快了。
+
 ### 步骤
 
 1. **下载**：去 [KataGo Releases](https://github.com/lightvector/KataGo/releases) 下载对应版本的预编译包（权重从 [katagotraining.org/networks/](https://katagotraining.org/networks/) 获取）：
@@ -146,11 +154,13 @@ KataGo 作为外部引擎被 Lizzie YZY 调用，本整合包不做源码级二�
 
 2. **替换**：解压后覆盖对应 `katago_*/` 目录中的 `katago.exe` 和 DLL 文件
 
-3. **更新配置**：检查新版 KataGo 是否有新增/移除的配置参数，相应调整：
+3. **清理缓存**：删除 `KataGoData/` 目录
+
+4. **更新配置**：检查新版 KataGo 是否有新增/移除的配置参数，相应调整：
    - `katago_configs/default_gtp.cfg` — 对弈配置
    - `katago_configs/analysis.cfg` — 分析模式配置
    - `katago_configs/estimate.cfg` — 形势判断配置
 
-4. **测试**：运行 `dignostic.bat` 或手动执行 `katago.exe benchmark` 验证
+5. **测试**：运行 `dignostic.bat` 或手动执行 `katago.exe benchmark` 验证
 
-5. **提交**：更新 `.gitignore` 中引擎文件规则，提交变更记录
+6. **提交**：更新 `.gitignore` 中引擎文件规则，提交变更记录

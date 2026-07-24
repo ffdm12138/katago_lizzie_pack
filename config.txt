@@ -350,7 +350,7 @@
       128,
       128
     ],
-    "last-engine": 0,
+    "last-engine": -1,
     "show-comment-node-color": true,
     "board-size": 19,
     "show-rect": 1,
