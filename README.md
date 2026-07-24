@@ -25,7 +25,9 @@
 
 ## 快速开始
 
-1. 下载权重文件放入 `weights/` 目录（推荐 [KataGo 官方权重发布页](https://github.com/lightvector/KataGo/releases)）
+1. 下载权重文件放入 `weights/` 目录：
+   - [katagotraining.org/networks/](https://katagotraining.org/networks/)（官方权重列表）
+   - 或 [KataGo Releases](https://github.com/lightvector/KataGo/releases)（随版本发布的权重）
 2. 双击 `Lizzieyzy-2.5.3-win64.exe` 启动
 3. 如无法打开，尝试 `bat启动器(exe无法打开时使用).bat`
 
@@ -42,6 +44,17 @@ python scripts/pack_full.py
 ## 引擎配置
 
 [config.txt](config.txt) 中预置了 6 组引擎配置（28B/40B 权重 × OpenCL/CUDA/TensorRT），默认使用 **28B TensorRT**。
+
+### 引擎选择指南
+
+| 引擎 | 推荐显卡 | 说明 |
+|------|---------|------|
+| **TensorRT** | NVIDIA RTX 20系以上 | **性能最优**，NVIDIA 官方推理优化，对 RTX 30/40/50 系支持最好。默认引擎 |
+| **CUDA** | NVIDIA 任意显卡（GTX 7系以上） | 兼容性最广，支持所有支持 CUDA 的 NVIDIA 显卡 |
+| **OpenCL** | 任意品牌显卡（N/A/I 均可） | 跨平台通用，NVIDIA/AMD/Intel 显卡均可用，性能相对较低 |
+| **Eigen / Eigen AVX2** | 无独立显卡 | 纯 CPU 运算，AVX2 版需要支持 AVX2 指令集的 CPU（Intel Haswell / AMD Excavator 以上） |
+
+实测环境：**NVIDIA GeForce RTX 4070 Laptop GPU（8 GB VRAM）**，TensorRT 和 CUDA 表现最佳。
 
 ## 开源许可
 
@@ -63,6 +76,8 @@ python scripts/pack_full.py
 - **权重**: 需从社区下载最新权重自行替换
 
 本仓库仅跟踪配置文件、文档和资源文件。大型二进制文件（引擎、DLL、权重、JRE、JAR）通过 [.gitignore](.gitignore) 排除。
+
+> **安全提醒**：`config.txt` 不包含任何敏感凭据。贡献功能（KataGo 分布式训练）的用户名和密码已清空，使用前请自行注册并填写。
 
 ### 更新 KataGo 引擎
 

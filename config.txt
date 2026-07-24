@@ -145,7 +145,7 @@
     "dym-pda-cap": "0.045",
     "contribute-show-estimate": false,
     "always-gtp": true,
-    "contribute-user-name": "lizzieyzytest",
+    "contribute-user-name": "",
     "resume-previous-game": false,
     "show-variation-graph": true,
     "minimum-blunder-bar-width": 1,
@@ -350,7 +350,7 @@
       128,
       128
     ],
-    "last-engine": 2,
+    "last-engine": 0,
     "show-comment-node-color": true,
     "board-size": 19,
     "show-rect": 1,
@@ -369,7 +369,7 @@
       0,
       255
     ],
-    "contribute-password": "test123456",
+    "contribute-password": "",
     "show-move-rect": 1,
     "engine-sgf-random": true,
     "use-num-coords-from-top": false,

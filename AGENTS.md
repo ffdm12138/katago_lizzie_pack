@@ -100,9 +100,22 @@ python scripts/pack_full.py
 
 ## 硬件信息
 
-- GPU: NVIDIA GeForce RTX 4070 Laptop GPU
+- GPU: NVIDIA GeForce RTX 4070 Laptop GPU（8 GB VRAM）
 - CPU: 6+ 搜索线程
 - 已有 OpenCL 调优和 TensorRT 缓存
+
+## 引擎选择参考
+
+| 引擎 | 推荐显卡 | 说明 |
+|------|---------|------|
+| **TensorRT** | NVIDIA RTX 20系以上 | 性能最优，默认引擎 |
+| **CUDA** | NVIDIA 任意显卡（GTX 7系+） | 兼容性最广 |
+| **OpenCL** | 任意品牌显卡 | 跨平台通用 |
+| **Eigen / AVX2** | 无独立显卡 | 纯 CPU 运算 |
+
+## 权重下载
+
+[katagotraining.org/networks/](https://katagotraining.org/networks/) — 官方权重列表
 
 ## 许可证
 
@@ -125,7 +138,7 @@ KataGo 作为外部引擎被 Lizzie YZY 调用，本整合包不做源码级二�
 
 ### 步骤
 
-1. **下载**：去 [KataGo Releases](https://github.com/lightvector/KataGo/releases) 下载对应版本的预编译包：
+1. **下载**：去 [KataGo Releases](https://github.com/lightvector/KataGo/releases) 下载对应版本的预编译包（权重从 [katagotraining.org/networks/](https://katagotraining.org/networks/) 获取）：
    - `kamata-go-vX.Y.Z-cuda12.8-cudnn9.8-windows-x64.zip` → CUDA 版
    - `kamata-go-vX.Y.Z-trt10.8-cuda12.8-windows-x64.zip` → TensorRT 版
    - `kamata-go-vX.Y.Z-opencl-windows-x64.zip` → OpenCL 版
