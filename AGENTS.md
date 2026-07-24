@@ -7,6 +7,7 @@ description: katago_lizzie_pack — Lizzie YZY v2.5.3 + KataGo Windows 围棋AI�
 
 ## 仓库地址
 - **GitHub**: `https://github.com/ffdm12138/katago_lizzie_pack.git`
+- **Gitee**:  `https://gitee.com/adam121389/katago_lizzie_pack.git`
 - **本地路径**: `c:\1\katago_win64`
 
 ## 项目概述
@@ -41,9 +42,9 @@ katago_win64/
 │   ├── analysis.cfg        #   分析模式配置（6×6线程）
 │   └── estimate.cfg        #   形势判断配置（1线程）
 │
-├── katago_cuda/            # KataGo v1.16.4 CUDA 后端
-├── katago_tensorRT/        # KataGo v1.16.4 TensorRT 后端（默认引擎）
-├── katago_opencl/          # KataGo v1.16.4 OpenCL 后端
+├── katago_cuda/            # KataGo v1.16.5 CUDA 后端
+├── katago_tensorRT/        # KataGo v1.16.5 TensorRT 后端（默认引擎）
+├── katago_opencl/          # KataGo v1.16.5 OpenCL 后端
 ├── katago_eigen/           # KataGo 纯 CPU 版
 ├── katago_eigen_avx2/      # KataGo CPU AVX2 版
 │
@@ -89,12 +90,12 @@ python scripts/pack_full.py
 
 | 索引 | 名称 | 权重 | 后端 |
 |------|------|------|------|
-| 0 | KataGo-2026-03-22-28B(OpenCL) | 28B | OpenCL |
-| 1 | KataGo-2026-03-22-28B(CUDA) | 28B | CUDA |
-| **2** | **KataGo-2026-03-22-28B(TensorRT)** | **28B** | **TensorRT（默认）** |
-| 3 | KataGo-2026-05-02-40B(OpenCL) | 40B | OpenCL |
-| 4 | KataGo-2026-05-02-40B(CUDA) | 40B | CUDA |
-| 5 | KataGo-2026-05-02-40B(TensorRT) | 40B | TensorRT |
+| 0 | KataGo-v1.16.5-28B(OpenCL) | 28B | OpenCL |
+| 1 | KataGo-v1.16.5-28B(CUDA) | 28B | CUDA |
+| **2** | **KataGo-v1.16.5-28B(TensorRT)** | **28B** | **TensorRT（默认）** |
+| 3 | KataGo-v1.16.5-40B(OpenCL) | 40B | OpenCL |
+| 4 | KataGo-v1.16.5-40B(CUDA) | 40B | CUDA |
+| 5 | KataGo-v1.16.5-40B(TensorRT) | 40B | TensorRT |
 
 ## 硬件信息
 

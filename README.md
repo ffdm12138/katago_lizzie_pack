@@ -11,9 +11,9 @@
 | [persist](persist) | 界面布局持久化状态 |
 | [scripts/](scripts/) | 工具脚本（打包等） |
 | [katago_configs/](katago_configs/) | KataGo 配置文件（对弈/分析/估计） |
-| [katago_cuda/](katago_cuda/) | KataGo v1.16.4 CUDA 版引擎 |
-| [katago_tensorRT/](katago_tensorRT/) | KataGo v1.16.4 TensorRT 版引擎 |
-| [katago_opencl/](katago_opencl/) | KataGo v1.16.4 OpenCL 版引擎 |
+| [katago_cuda/](katago_cuda/) | KataGo v1.16.5 CUDA 版引擎 |
+| [katago_tensorRT/](katago_tensorRT/) | KataGo v1.16.5 TensorRT 版引擎 |
+| [katago_opencl/](katago_opencl/) | KataGo v1.16.5 OpenCL 版引擎 |
 | [katago_eigen/](katago_eigen/) | KataGo CPU 版引擎 |
 | [katago_eigen_avx2/](katago_eigen_avx2/) | KataGo CPU+AVX2 版引擎 |
 | [weights/](weights/) | 神经网络权重（需自行下载，已 gitignore） |
@@ -59,7 +59,7 @@ python scripts/pack_full.py
 ## 维护说明
 
 - **GUI**: Lizzie YZY v2.5.3（最后更新 2023-06-15，原作者 yzyray 已停止维护）
-- **引擎**: KataGo v1.16.4（可手动升级至更新版本）
+- **引擎**: KataGo v1.16.5（可手动升级至更新版本）
 - **权重**: 需从社区下载最新权重自行替换
 
 本仓库仅跟踪配置文件、文档和资源文件。大型二进制文件（引擎、DLL、权重、JRE、JAR）通过 [.gitignore](.gitignore) 排除。
