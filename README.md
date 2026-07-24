@@ -63,3 +63,17 @@ python scripts/pack_full.py
 - **权重**: 需从社区下载最新权重自行替换
 
 本仓库仅跟踪配置文件、文档和资源文件。大型二进制文件（引擎、DLL、权重、JRE、JAR）通过 [.gitignore](.gitignore) 排除。
+
+### 更新 KataGo 引擎
+
+KataGo 作为外部引擎被 Lizzie YZY 调用，不建议克隆源码编译，推荐使用官方预编译版。
+
+1. **下载**：去 [KataGo Releases](https://github.com/lightvector/KataGo/releases) 下载对应版本的预编译包（CUDA / TensorRT / OpenCL / Eigen）
+
+2. **替换**：解压后覆盖对应 `katago_*/` 目录中的 `katago.exe` 和 DLL 文件
+
+3. **更新配置**：检查新版 KataGo 参数变化，相应调整 `katago_configs/` 下的三个 `.cfg` 文件
+
+4. **测试**：运行 `dignostic.bat` 或 `katago.exe benchmark` 验证
+
+5. **提交**：记录变更并推送

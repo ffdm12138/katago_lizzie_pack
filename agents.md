@@ -115,3 +115,27 @@ python scripts/pack_full.py
 - 大型二进制（权重/引擎 DLL/JRE/JAR）通过 .gitignore 排除
 - 配置文件、主题、音效、文档都在版本控制中
 - 更新引擎或权重后记得记录变更
+
+## 更新 KataGo 引擎
+
+KataGo 作为外部引擎被 Lizzie YZY 调用，本整合包不做源码级二次开发。
+不建议克隆 KataGo 源码自行编译，推荐使用官方预编译版。
+
+### 步骤
+
+1. **下载**：去 [KataGo Releases](https://github.com/lightvector/KataGo/releases) 下载对应版本的预编译包：
+   - `kamata-go-vX.Y.Z-cuda12.8-cudnn9.8-windows-x64.zip` → CUDA 版
+   - `kamata-go-vX.Y.Z-trt10.8-cuda12.8-windows-x64.zip` → TensorRT 版
+   - `kamata-go-vX.Y.Z-opencl-windows-x64.zip` → OpenCL 版
+   - `kamata-go-vX.Y.Z-eigen-windows-x64.zip` → Eigen/CPU 版
+
+2. **替换**：解压后覆盖对应 `katago_*/` 目录中的 `katago.exe` 和 DLL 文件
+
+3. **更新配置**：检查新版 KataGo 是否有新增/移除的配置参数，相应调整：
+   - `katago_configs/default_gtp.cfg` — 对弈配置
+   - `katago_configs/analysis.cfg` — 分析模式配置
+   - `katago_configs/estimate.cfg` — 形势判断配置
+
+4. **测试**：运行 `dignostic.bat` 或手动执行 `katago.exe benchmark` 验证
+
+5. **提交**：更新 `.gitignore` 中引擎文件规则，提交变更记录
