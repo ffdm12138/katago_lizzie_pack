@@ -9,6 +9,13 @@
 Lizzie YZY v2.5.3 + KataGo 围棋 AI Windows 整合包。
 解压即用，包含多引擎（CUDA/TensorRT/OpenCL/Eigen）、棋盘识别、主题、音效等完整组件。
 
+## 环境说明
+
+- **Shell**: 本机使用 Git Bash（POSIX），而非 cmd.exe 或 PowerShell
+- **PowerShell 7**: 已安装，位于 `pwsh`，必要时优先使用 PowerShell 7
+- **Python**: 可用 `python` 命令
+- **GitHub CLI**: `gh` 已登录授权
+
 ## 目录结构
 
 ```
@@ -19,6 +26,10 @@ katago_win64/
 ├── test_commands.txt       # GTP 测试命令
 ├── .gitignore              # 排除大型二进制文件
 ├── README.md               # 项目说明
+│
+├── scripts/                # 工具脚本
+│   ├── pack_git.py         #   打包 git 跟踪文件 → katago_lizzie_pack_git.zip
+│   └── pack_full.py        #   打包全部文件（含引擎）→ katago_lizzie_pack_full.zip
 │
 ├── katago_configs/         # KataGo 核心配置
 │   ├── default_gtp.cfg     #   对弈模式配置（6线程，中国规则）
@@ -55,6 +66,16 @@ katago_win64/
 ├── Lizzieyzy(仅在显示异常时尝试)-win64.exe
 ├── lizzie-yzy2.5.3-shaded.jar
 └── 两个 bat 启动器
+```
+
+## 打包脚本
+
+```bash
+# 轻量包 — 仅 git 跟踪的文件（配置/文档/主题/音效）
+python scripts/pack_git.py
+
+# 完整包 — 项目全部文件（补上权重即可解压即用）
+python scripts/pack_full.py
 ```
 
 ## 引擎预设（config.txt）

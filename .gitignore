@@ -49,6 +49,13 @@ gtp_logs/
 # Saved games and screenshots
 save/
 
+# Python
+__pycache__/
+*.pyc
+
+# Pack output zips
+katago_lizzie_pack*.zip
+
 # Python 2.7 / ZenEstimate (legacy binary)
 ZenEstimate/
 

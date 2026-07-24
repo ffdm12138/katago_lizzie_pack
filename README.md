@@ -9,6 +9,7 @@
 |-----------|------|
 | [config.txt](config.txt) | Lizzie YZY 配置文件（引擎路径、UI 等） |
 | [persist](persist) | 界面布局持久化状态 |
+| [scripts/](scripts/) | 工具脚本（打包等） |
 | [katago_configs/](katago_configs/) | KataGo 配置文件（对弈/分析/估计） |
 | [katago_cuda/](katago_cuda/) | KataGo v1.16.4 CUDA 版引擎 |
 | [katago_tensorRT/](katago_tensorRT/) | KataGo v1.16.4 TensorRT 版引擎 |
@@ -27,6 +28,16 @@
 1. 下载权重文件放入 `weights/` 目录（推荐 [KataGo 官方权重发布页](https://github.com/lightvector/KataGo/releases)）
 2. 双击 `Lizzieyzy-2.5.3-win64.exe` 启动
 3. 如无法打开，尝试 `bat启动器(exe无法打开时使用).bat`
+
+## 打包发行
+
+```bash
+# 轻量包 — 仅 git 跟踪的文件（配置/文档/主题/音效）
+python scripts/pack_git.py
+
+# 完整包 — 项目全部文件（含引擎，补权重即可用）
+python scripts/pack_full.py
+```
 
 ## 引擎配置
 

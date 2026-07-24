@@ -1,9 +1,9 @@
-"""打包 git 跟踪的项目文件为 zip"""
+"""打包 git 跟踪的文件为轻量 zip（配置/文档/主题/音效）"""
 import subprocess, zipfile, os
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
-ZIP_NAME = "katago_lizzie_pack.zip"
+ROOT = Path(__file__).resolve().parent.parent
+ZIP_NAME = "katago_lizzie_pack_git.zip"
 ZIP_PATH = ROOT / ZIP_NAME
 
 def main():
