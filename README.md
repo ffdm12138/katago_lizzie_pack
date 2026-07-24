@@ -49,13 +49,24 @@ python scripts/pack_full.py
 
 | 引擎 | 推荐显卡 | 说明 |
 |------|---------|------|
-| **CUDA** | NVIDIA 任意显卡（GTX 7系以上） | 兼容性最广，支持所有 CUDA NVIDIA 显卡。**默认引擎** |
-| **TensorRT** | NVIDIA RTX 20系以上 | 性能最优，但需匹配 TRT DLL 版本，部分环境可能无法初始化 |
-| **CUDA** | NVIDIA 任意显卡（GTX 7系以上） | 兼容性最广，支持所有支持 CUDA 的 NVIDIA 显卡 |
-| **OpenCL** | 任意品牌显卡（N/A/I 均可） | 跨平台通用，NVIDIA/AMD/Intel 显卡均可用，性能相对较低 |
-| **Eigen / Eigen AVX2** | 无独立显卡 | 纯 CPU 运算，AVX2 版需要支持 AVX2 指令集的 CPU（Intel Haswell / AMD Excavator 以上） |
+| **CUDA** | NVIDIA 任意显卡（GTX 7系以上） | 兼容性最广，**默认引擎** |
+| **TensorRT** | NVIDIA RTX 20系以上 | 性能最优，NVIDIA 官方推理加速 |
+| **OpenCL** | 任意品牌显卡 | 跨平台通用 |
+| **Eigen / AVX2** | 无独立显卡 | 纯 CPU 运算 |
 
-实测环境：**NVIDIA GeForce RTX 4070 Laptop GPU（8 GB VRAM）**，TensorRT 和 CUDA 表现最佳。
+#### TensorRT DLL 版本匹配
+
+KataGo 官方 zip **不含** `nvinfer*.dll`（来自系统 NVIDIA 驱动），必须选择匹配的构建版本：
+
+| TRT DLL | Katago zip |
+|---------|-----------|
+| `nvinfer.dll` (TRT 8.x) | `katago-v*-trt8.6.1-cuda12.1-*.zip` |
+| `nvinfer_10.dll` (TRT 10.2) | `katago-v*-trt10.2.0-cuda12.5-*.zip` |
+| `nvinfer_10.dll` (TRT 10.9) | `katago-v*-trt10.9.0-cuda12.8-*.zip` |
+
+> 版本不匹配会静默崩溃。用 `katago.exe version` 确认输出 "Using TensorRT backend" 即成功。
+
+实测环境：**NVIDIA GeForce RTX 4070 Laptop GPU（8 GB VRAM）**，CUDA 和 TensorRT 10.2 均正常。
 
 ## 开源许可
 

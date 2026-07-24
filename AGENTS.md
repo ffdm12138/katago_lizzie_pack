@@ -110,9 +110,22 @@ python scripts/pack_full.py
 |------|---------|------|
 | **CUDA** | NVIDIA 任意显卡（GTX 7系+） | 兼容性最广，**默认引擎** |
 | **TensorRT** | NVIDIA RTX 20系以上 | 性能最优，但需匹配 TRT DLL 版本 |
-| **CUDA** | NVIDIA 任意显卡（GTX 7系+） | 兼容性最广 |
 | **OpenCL** | 任意品牌显卡 | 跨平台通用 |
 | **Eigen / AVX2** | 无独立显卡 | 纯 CPU 运算 |
+
+### TensorRT DLL 匹配
+
+KataGo 官方 Release zip 不含 `nvinfer*.dll`，这些 DLL 来自系统 NVIDIA 驱动或旧版 TensorRT SDK。
+必须选择与当前 DLL 版本匹配的 Katago 构建：
+
+| TRT DLL 版本 | Katago zip 文件名 |
+|-------------|-------------------|
+| TRT 8.x (`nvinfer.dll`) | `katago-v*-trt8.6.1-cuda12.1-*.zip` |
+| TRT 10.2 (`nvinfer_10.dll`) | `katago-v*-trt10.2.0-cuda12.5-*.zip` |
+| TRT 10.9 (`nvinfer_10.dll`) | `katago-v*-trt10.9.0-cuda12.8-*.zip` |
+
+> **本机环境**：`nvinfer_10.dll` 为 TRT 10.2，使用 `v1.16.5-trt10.2.0-cuda12.5` 构建。
+> 版本不对 → 静默崩溃无错误日志，用 `katago.exe version` 看到 "Using TensorRT backend" 确认成功。
 
 ## 权重下载
 
