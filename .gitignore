@@ -1,0 +1,66 @@
+# Neural network weights (large, can be re-downloaded)
+weights/*.bin.gz
+weights/*.gz
+
+# Java executable and runtime (can be re-downloaded)
+*.jar
+jre/
+
+# Windows executables
+*.exe
+
+# Engine binaries and DLLs
+katago_cuda/katago.exe
+katago_cuda/*.dll
+katago_cuda/*.zip
+katago_eigen/katago.exe
+katago_eigen/*.dll
+katago_eigen_avx2/katago.exe
+katago_eigen_avx2/katago_avx2.exe
+katago_eigen_avx2/*.dll
+katago_opencl/katago.exe
+katago_opencl/katago_v1.15.0_backup.exe
+katago_opencl/*.dll
+katago_opencl/*.zip
+katago_opencl/新建文件夹/
+katago_tensorRT/katago.exe
+katago_tensorRT/*.exe
+katago_tensorRT/*.dll
+katago_tensorRT/*.zip
+katago_tensorRT/新建文件夹/
+
+# Readboard binaries and large files
+readboard/*.exe
+readboard/*.dll
+readboard/dll/
+readboard/*.pdb
+readboard/readme*.rtf
+
+# JCEF browser bundle (large binary)
+jcef-bundle/
+
+# KataGo runtime cache (auto-generated)
+KataGoData/
+
+# GTP logs
+gtp_logs/
+
+# Saved games and screenshots
+save/
+
+# Python 2.7 / ZenEstimate (legacy binary)
+ZenEstimate/
+
+# Clock helper
+clockHelper/
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
