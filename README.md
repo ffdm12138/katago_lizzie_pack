@@ -43,13 +43,14 @@ python scripts/pack_full.py
 
 ## 引擎配置
 
-[config.txt](config.txt) 中预置了 6 组引擎配置（28B/40B 权重 × OpenCL/CUDA/TensorRT），默认使用 **28B TensorRT**。
+[config.txt](config.txt) 中预置了 6 组引擎配置（28B/40B 权重 × OpenCL/CUDA/TensorRT），默认使用 **28B CUDA**。
 
 ### 引擎选择指南
 
 | 引擎 | 推荐显卡 | 说明 |
 |------|---------|------|
-| **TensorRT** | NVIDIA RTX 20系以上 | **性能最优**，NVIDIA 官方推理优化，对 RTX 30/40/50 系支持最好。默认引擎 |
+| **CUDA** | NVIDIA 任意显卡（GTX 7系以上） | 兼容性最广，支持所有 CUDA NVIDIA 显卡。**默认引擎** |
+| **TensorRT** | NVIDIA RTX 20系以上 | 性能最优，但需匹配 TRT DLL 版本，部分环境可能无法初始化 |
 | **CUDA** | NVIDIA 任意显卡（GTX 7系以上） | 兼容性最广，支持所有支持 CUDA 的 NVIDIA 显卡 |
 | **OpenCL** | 任意品牌显卡（N/A/I 均可） | 跨平台通用，NVIDIA/AMD/Intel 显卡均可用，性能相对较低 |
 | **Eigen / Eigen AVX2** | 无独立显卡 | 纯 CPU 运算，AVX2 版需要支持 AVX2 指令集的 CPU（Intel Haswell / AMD Excavator 以上） |

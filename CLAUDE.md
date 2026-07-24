@@ -39,7 +39,7 @@ katago_win64/
 │   └── estimate.cfg        #   形势判断配置（1线程）
 │
 ├── katago_cuda/            # KataGo v1.16.5 CUDA 后端
-├── katago_tensorRT/        # KataGo v1.16.5 TensorRT 后端（默认引擎）
+├── katago_tensorRT/        # KataGo v1.16.5 TensorRT 后端（某些显卡可能因 DLL 版本问题初始化失败，备选）
 ├── katago_opencl/          # KataGo v1.16.5 OpenCL 后端
 ├── katago_eigen/           # KataGo 纯 CPU 版
 ├── katago_eigen_avx2/      # KataGo CPU AVX2 版
@@ -82,13 +82,13 @@ python scripts/pack_full.py
 
 ## 引擎预设（config.txt）
 
-6 组预设，默认引擎索引 2（28B TensorRT）：
+6 组预设，默认引擎索引 1（28B CUDA）：
 
 | 索引 | 名称 | 权重 | 后端 |
 |------|------|------|------|
 | 0 | KataGo-v1.16.5-28B(OpenCL) | 28B | OpenCL |
 | 1 | KataGo-v1.16.5-28B(CUDA) | 28B | CUDA |
-| **2** | **KataGo-v1.16.5-28B(TensorRT)** | **28B** | **TensorRT（默认）** |
+| 2 | KataGo-v1.16.5-28B(TensorRT) | 28B | TensorRT |
 | 3 | KataGo-v1.16.5-40B(OpenCL) | 40B | OpenCL |
 | 4 | KataGo-v1.16.5-40B(CUDA) | 40B | CUDA |
 | 5 | KataGo-v1.16.5-40B(TensorRT) | 40B | TensorRT |
@@ -103,7 +103,8 @@ python scripts/pack_full.py
 
 | 引擎 | 推荐显卡 | 说明 |
 |------|---------|------|
-| **TensorRT** | NVIDIA RTX 20系以上 | 性能最优，默认引擎 |
+| **CUDA** | NVIDIA 任意显卡（GTX 7系+） | 兼容性最广，**默认引擎** |
+| **TensorRT** | NVIDIA RTX 20系以上 | 性能最优，但需匹配 TRT DLL 版本 |
 | **CUDA** | NVIDIA 任意显卡（GTX 7系+） | 兼容性最广 |
 | **OpenCL** | 任意品牌显卡 | 跨平台通用 |
 | **Eigen / AVX2** | 无独立显卡 | 纯 CPU 运算 |

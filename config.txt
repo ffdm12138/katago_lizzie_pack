@@ -136,7 +136,7 @@
     "print-comms": true
   },
   "ui": {
-    "default-engine": 2,
+    "default-engine": 1,
     "analysis-engine-preload": false,
     "allow-drag": false,
     "chk-dym-pda": false,
