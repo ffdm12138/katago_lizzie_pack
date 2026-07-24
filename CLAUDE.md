@@ -8,6 +8,7 @@
 ## 项目概述
 
 Lizzie YZY v2.5.3 + KataGo 围棋 AI Windows 整合包。
+**本仓库为整合包发布仓库，不包含源码改动**——所有组件均直接使用上游官方发布版。
 解压即用，包含多引擎（CUDA/TensorRT/OpenCL/Eigen）、棋盘识别、主题、音效等完整组件。
 
 ## 环境说明
@@ -75,7 +76,7 @@ katago_win64/
 # 轻量包 — 仅 git 跟踪的文件（配置/文档/主题/音效）
 python scripts/pack_git.py
 
-# 完整包 — 项目全部文件（补上权重即可解压即用）
+# 完整包 — 全部文件（含引擎 DLL 和权重，解压即用）
 python scripts/pack_full.py
 ```
 

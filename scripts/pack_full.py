@@ -1,4 +1,4 @@
-"""打包项目全部文件为发行版 zip（补上权重就能解压即用）"""
+"""打包全部文件为发行版 zip（含权重，解压即用）"""
 import zipfile, os
 from pathlib import Path
 
@@ -14,7 +14,7 @@ EXCLUDE_DIRS = {
 }
 
 EXCLUDE_FILES = {
-    ZIP_NAME,             # 避免递归打包
+    ZIP_NAME,
     "katago_lizzie_pack_git.zip",
     ".gitignore",
 }
@@ -23,15 +23,19 @@ def main():
     total_files = 0
     total_bytes = 0
 
-    with zipfile.ZipFile(ZIP_PATH, "w", zipfile.ZIP_DEFLATED) as zf:
+    kwargs = dict(
+        compression=zipfile.ZIP_DEFLATED,
+        compresslevel=9,
+    )
+
+    with zipfile.ZipFile(ZIP_PATH, "w", **kwargs) as zf:
         for root, dirs, files in os.walk(ROOT):
-            # 跳过排除目录
             rel = Path(root).relative_to(ROOT)
             if rel.parts and rel.parts[0] in EXCLUDE_DIRS:
                 dirs.clear()
                 continue
 
-            for f in files:
+            for f in sorted(files):
                 if f in EXCLUDE_FILES:
                     continue
                 fpath = Path(root) / f
@@ -40,12 +44,13 @@ def main():
                 total_files += 1
                 total_bytes += fpath.stat().st_size
 
-    size_mb = total_bytes / 1024 / 1024
+    raw_mb = total_bytes / 1024 / 1024
     zip_mb = os.path.getsize(ZIP_PATH) / 1024 / 1024
+    ratio = (1 - zip_mb / raw_mb) * 100 if raw_mb else 0
     print(f"Done: {ZIP_NAME}")
-    print(f"  Files:  {total_files}")
-    print(f"  Raw:    {size_mb:.1f} MB")
-    print(f"  Zipped: {zip_mb:.1f} MB")
+    print(f"  Files:     {total_files}")
+    print(f"  Raw size:  {raw_mb:.1f} MB")
+    print(f"  Zipped:    {zip_mb:.1f} MB  ({ratio:.0f}% compression)")
 
 if __name__ == "__main__":
     main()

@@ -1,7 +1,7 @@
 # Lizzie YZY + KataGo Windows 整合包
 
 [Lizzie YZY](https://github.com/yzyray/lizzieyzy) 是 [Lizzie](https://github.com/featurecat/lizzie) 的中文增强分支，集成了 [KataGo](https://github.com/lightvector/KataGo) 围棋 AI 引擎。
-本仓库为 Windows 整合包，解压即用。
+本仓库为 Windows 整合包发布仓库，**不包含源码改动**——所有组件均直接使用上游官方发布版，解压即用。
 
 ## 目录结构
 
@@ -35,7 +35,7 @@
 # 轻量包 — 仅 git 跟踪的文件（配置/文档/主题/音效）
 python scripts/pack_git.py
 
-# 完整包 — 项目全部文件（含引擎，补权重即可用）
+# 完整包 — 全部文件（含引擎 DLL 和权重，解压即用）
 python scripts/pack_full.py
 ```
 
