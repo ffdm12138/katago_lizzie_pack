@@ -46,7 +46,7 @@ katago_win64/
 │
 ├── weights/                # 神经网络权重（gitignored，需自行下载）
 │   ├── kata1-zhizi-b28c512nbt-muonfd2.bin.gz    # 28B 259MB
-│   └── kata1-zhizi-b40c768nbt-fdx6d.bin.gz      # 40B 824MB
+│   └── kata1-zhizi-b40c768nbt-s11272M-d5935M.bin.gz      # 40B 824MB
 │
 ├── readboard/              # 棋盘识别工具（OpenCV .NET）
 ├── readboard_java/         # 棋盘识别工具（Java BoofCV 版）
@@ -89,9 +89,9 @@ python scripts/pack_full.py
 | 0 | KataGo-v1.16.5-28B(OpenCL) | 28B | OpenCL |
 | 1 | KataGo-v1.16.5-28B(CUDA) | 28B | CUDA |
 | 2 | KataGo-v1.16.5-28B(TensorRT) | 28B | TensorRT |
-| 3 | KataGo-v1.16.5-40B(OpenCL) | 40B | OpenCL |
-| 4 | KataGo-v1.16.5-40B(CUDA) | 40B | CUDA |
-| 5 | KataGo-v1.16.5-40B(TensorRT) | 40B | TensorRT |
+| 3 | KataGo-v1.16.5-40B-s11272M(OpenCL) | 40B | OpenCL |
+| 4 | KataGo-v1.16.5-40B-s11272M(CUDA) | 40B | CUDA |
+| 5 | KataGo-v1.16.5-40B-s11272M(TensorRT) | 40B | TensorRT |
 
 ## 硬件信息
 
