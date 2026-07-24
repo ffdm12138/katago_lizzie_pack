@@ -34,6 +34,7 @@ readboard/*.exe
 readboard/*.dll
 readboard/dll/
 readboard/*.pdb
+readboard/*.xml
 readboard/readme*.rtf
 
 # JCEF browser bundle (large binary)
@@ -53,6 +54,9 @@ ZenEstimate/
 
 # Clock helper
 clockHelper/
+
+# PDF readmes (large)
+readme_*.pdf
 
 # OS files
 Thumbs.db
