@@ -81,7 +81,7 @@ katago_win64/
 # 轻量包 — 仅 git 跟踪的文件（配置/文档/主题/音效）
 python scripts/pack_git.py
 
-# 完整包 — 全部文件（含引擎 DLL 和权重，解压即用）
+# 完整包 — 全部文件（含引擎 DLL，权重需自行下载）
 python scripts/pack_full.py
 ```
 
@@ -130,6 +130,18 @@ KataGo 官方 Release zip 不含 `nvinfer*.dll`，这些 DLL 来自系统 NVIDIA
 ## 权重下载
 
 [katagotraining.org/networks/](https://katagotraining.org/networks/) — 官方权重列表
+
+下载 `.bin.gz` 文件放入 `weights/` 目录即可。
+
+### 更换权重
+
+只需修改 `config.txt` 中对应引擎预设的 `command` 字段，替换 `-model` 后的权重文件名：
+
+```json
+"command": "\"katago_cuda\\katago.exe\" gtp -model \"weights\\你的权重文件.bin.gz\" -config \"katago_configs\\default_gtp.cfg\""
+```
+
+6 组引擎预设（索引 0-5）各自独立，可分别配置不同权重。换权重后重启 Lizzie 生效，无需其他操作。
 
 ## 许可证
 

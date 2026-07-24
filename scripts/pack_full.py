@@ -1,4 +1,4 @@
-"""打包全部文件为发行版 zip（含权重，解压即用）"""
+"""打包全部文件为发行版 zip（不含权重和 TRT，需自行下载权重）"""
 import zipfile, os
 from pathlib import Path
 
@@ -8,14 +8,19 @@ ZIP_PATH = ROOT / ZIP_NAME
 
 EXCLUDE_DIRS = {
     ".git",
-    "KataGoData",     # 引擎缓存，启动后自动生成
-    "gtp_logs",       # 日志
-    "save",           # 用户存档
+    "KataGoData",        # 引擎缓存，启动后自动生成
+    "gtp_logs",          # 日志
+    "save",              # 用户存档
+    "weights",           # 权重需从 katagotraining.org 下载
+    "katago_tensorRT",   # TRT 需匹配本机 DLL，单独处理
 }
 
 EXCLUDE_FILES = {
     ZIP_NAME,
     "katago_lizzie_pack_git.zip",
+    "katago_lizzie_pack_full.zip.aa",
+    "katago_lizzie_pack_full.zip.ab",
+    "katago_lizzie_pack_full.zip.ac",
     ".gitignore",
 }
 
@@ -23,12 +28,7 @@ def main():
     total_files = 0
     total_bytes = 0
 
-    kwargs = dict(
-        compression=zipfile.ZIP_DEFLATED,
-        compresslevel=9,
-    )
-
-    with zipfile.ZipFile(ZIP_PATH, "w", **kwargs) as zf:
+    with zipfile.ZipFile(ZIP_PATH, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
         for root, dirs, files in os.walk(ROOT):
             rel = Path(root).relative_to(ROOT)
             if rel.parts and rel.parts[0] in EXCLUDE_DIRS:

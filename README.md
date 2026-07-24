@@ -31,13 +31,23 @@
 2. 双击 `Lizzieyzy-2.5.3-win64.exe` 启动
 3. 如无法打开，尝试 `bat启动器(exe无法打开时使用).bat`
 
+### 更换权重
+
+只需修改 `config.txt` 中对应引擎预设的 `command` 字段，替换 `-model` 后的权重文件名即可：
+
+```json
+"command": "\"katago_cuda\\katago.exe\" gtp -model \"weights\\新权重.bin.gz\" -config \"katago_configs\\default_gtp.cfg\""
+```
+
+6 组引擎预设各自独立，换权重后重启 Lizzie 生效。
+
 ## 打包发行
 
 ```bash
 # 轻量包 — 仅 git 跟踪的文件（配置/文档/主题/音效）
 python scripts/pack_git.py
 
-# 完整包 — 全部文件（含引擎 DLL 和权重，解压即用）
+# 完整包 — 全部文件（含引擎 DLL，权重需自行下载）
 python scripts/pack_full.py
 ```
 
