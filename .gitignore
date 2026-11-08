@@ -1,0 +1,9 @@
+# Allow only the files that make up the public guide.
+/*
+!/.gitignore
+!/LICENSE
+!/README.md
+!/docs/
+/docs/*
+!/docs/deployment.md
+!/docs/weight-updates.md
